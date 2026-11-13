@@ -1,4 +1,4 @@
-Règles:
+# Règles
 
 RG1. Un jouer est identifié par son adresse e-mail unique. On connaît son surnom, son pays et doit se connecter.
 
@@ -18,7 +18,7 @@ RG8. Le classement des joueurs est établi en fonction de leur score. Un joueur 
 
 RG9. Le classement est mis à jour lorsqu’un joueur gagne ou perd des points.
 
-MCD: 
+# MCD
 
 <img width="255" height="717" alt="image" src="https://github.com/user-attachments/assets/346d570b-d1f0-4dde-b713-383b19b2bcb8" />
 
@@ -67,21 +67,26 @@ class SCORE {
     +int position
 }
 
-JOUEUR "1" -- "0..*" PERSONNAGE : Possède (RG2	Un joueur peut avoir plusieurs personnages, mais chaque personnage appartient à un seul joueur.)
+JOUEUR "1" -- "0..*" PERSONNAGE : Possède 
+(RG2	Un joueur peut avoir plusieurs personnages, mais chaque personnage appartient à un seul joueur.)
 
-PERSONNAGE "1" -- "1" INVENTAIRE : Possède (RG4	Chaque personnage possède un inventaire unique et chaque inventaire appartient à un personnage.)
+PERSONNAGE "1" -- "1" INVENTAIRE : Possède 
+(RG4	Chaque personnage possède un inventaire unique et chaque inventaire appartient à un personnage.)
 
-INVENTAIRE "0..1" -- "0..*" OBJET : Contient (RG5	Un inventaire peut être vide ou contenir plusieurs objets. Un objet est dans au maximum un inventaire.)
+INVENTAIRE "0..1" -- "0..*" OBJET : Contient 
+(RG5	Un inventaire peut être vide ou contenir plusieurs objets. Un objet est dans au maximum un inventaire.)
 
 PERSONNAGE "0..*" -- "0..*" CLASSEMENT : Participe
 
-JOUEUR "1" -- "0..*" SCORE : Possède (RG8	Un joueur peut avoir un score dans plusieurs classements.)
+JOUEUR "1" -- "0..*" SCORE : Possède 
+(RG8	Un joueur peut avoir un score dans plusieurs classements.)
 
-CLASSEMENT "1" -- "0..*" SCORE : Contient (RG8	Un classement contient plusieurs scores, chaque score appartient à un seul classement.)
+CLASSEMENT "1" -- "0..*" SCORE : Contient 
+(RG8	Un classement contient plusieurs scores, chaque score appartient à un seul classement.)
 
 
 
-MLD (clé primaire précédée de #, clé étrangère précédée de *):
+# MLD (clé primaire précédée de #, clé étrangère précédée de *):
 
 JOUEUR(#id, email, surnom, pays, connecte_le)
 
@@ -97,9 +102,9 @@ SCORE(#id, points, position, *id_joueur, *id_classement)
 
 
 
-ADR:
+# ADR
 
-# 1. MongoDB pour les données du jeu et Redis pour le classement
+## MongoDB pour les données du jeu et Redis pour le classement
 
 - **Date** : 2026-13-10
 - **Statut** : Proposée
