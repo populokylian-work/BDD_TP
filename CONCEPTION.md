@@ -1,6 +1,6 @@
-## Cahiers des charges
+# Cahiers des charges
 
-# Règles
+## Règles
 
 RG1. Un jouer est identifié par son adresse e-mail unique. On connaît son surnom, son pays et doit se connecter.
 
@@ -20,7 +20,7 @@ RG8. Le classement des joueurs est établi en fonction de leur score. Un joueur 
 
 RG9. Le classement est mis à jour lorsqu’un joueur gagne ou perd des points.
 
-# MCD
+## MCD
 
 <img width="255" height="717" alt="image" src="https://github.com/user-attachments/assets/346d570b-d1f0-4dde-b713-383b19b2bcb8" />
 
@@ -88,7 +88,7 @@ CLASSEMENT "1" -- "0..*" SCORE : Contient
 
 
 
-# MLD (clé primaire précédée de #, clé étrangère précédée de *):
+## MLD (clé primaire précédée de #, clé étrangère précédée de *):
 
 JOUEUR(#id, email, surnom, pays, connecte_le)
 
