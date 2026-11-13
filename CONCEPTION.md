@@ -1,8 +1,14 @@
 Règles:
 
-
-
-
+RG1. Un jouer est identifié par son adresse e-mail unique. On connaît son surnom, son pays et doit se connecter. 
+RG2. Un joueur peut posséder plusieurs personnages, mais un personnage appartient à un seul joueur. 
+RG3. Chaque personnage possède un nom, un niveau, une quantité de point d’expérience et les point de vie. 
+RG4. Chaque personnage possède un inventaire dont la capacité de stockage limitée. 
+RG5. Un inventaire peut contenir plusieurs objets (armes, armures, potions, équipements). 
+RG6. Chaque objet possède des caractéristiques spécifiques selon son types (dégâts, défense, rareté, quantité, etc.). 
+RG7. Un personnage peut gagner des points d’expérience en accomplissant des missions ou en battant des ennemis. 
+RG8. Le classement des joueurs est établi en fonction de leur score. Un joueur ne peut occuper qu’une seule position dans un même classement. 
+RG9. Le classement est mis à jour lorsqu’un joueur gagne ou perd des points.
 
 Mcd: 
 
