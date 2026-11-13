@@ -5,8 +5,10 @@ Règles:
 
 
 Mcd: 
+
 <img width="227" height="787" alt="image" src="https://github.com/user-attachments/assets/abdd6570-f945-41cd-a360-2989ca13ec25" />
-    class JOUEUR {
+
+	class JOUEUR {
 	    +Guid id
 	    +string email
 	    +string surnom
