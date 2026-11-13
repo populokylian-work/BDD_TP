@@ -1,3 +1,5 @@
+## Cahiers des charges
+
 # Règles
 
 RG1. Un jouer est identifié par son adresse e-mail unique. On connaît son surnom, son pays et doit se connecter.
