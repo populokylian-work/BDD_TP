@@ -18,7 +18,7 @@ RG8. Le classement des joueurs est établi en fonction de leur score. Un joueur 
 
 RG9. Le classement est mis à jour lorsqu’un joueur gagne ou perd des points.
 
-Mcd: 
+MCD: 
 
 <img width="227" height="787" alt="image" src="https://github.com/user-attachments/assets/abdd6570-f945-41cd-a360-2989ca13ec25" />
 
@@ -62,3 +62,19 @@ Mcd:
     <img width="1143" height="6185" alt="End-to-End Encrypted-2026-11-13-091653" src="https://github.com/user-attachments/assets/270b6e07-768e-48b6-a9f5-0586fa357ef1" />
 
 
+
+MLD (clé primaire soulignée, clé étrangère précédée de #):
+
+JOUEUR (id, email, surnom, pays, connecte_le)
+
+PERSONNAGE (id, nom, niveau, pointExp, pointDeVie, statut, #id_joueur)
+
+INVENTAIRE (id, nom, espace, #id_personnage)
+
+OBJET (id, nom, prix_unitaire)
+
+CONTENIR (#id_inventaire, #id_objet, quantite)
+
+CLASSEMENT (id, nom)
+
+PARTICIPER (#id_personnage, #id_classement, score)
