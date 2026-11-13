@@ -20,64 +20,82 @@ RG9. Le classement est mis à jour lorsqu’un joueur gagne ou perd des points.
 
 MCD: 
 
-<img width="227" height="787" alt="image" src="https://github.com/user-attachments/assets/abdd6570-f945-41cd-a360-2989ca13ec25" />
-
-	class JOUEUR {
-	    +Guid id
-	    +string email
-	    +string surnom
-	    +string pays
-        +personnage personnage
-	    +bool connecté_le
-    }
-
-    class PERSONNAGE {
-	    +Guid id
-        +string nom
-        +string niveau
-        +int pointExp
-        +int pointDeVie
-	    +statut statut
-    }
-
-    class INVENTAIRE {
-	    +Guid id
-	    +string nom
-	    +int espace
-        +objet objet
-    }
-
-    class CLASSEMENT {
-	    +Guid id
-	    +string nom
-      +list score
-    }
+<img width="255" height="717" alt="image" src="https://github.com/user-attachments/assets/346d570b-d1f0-4dde-b713-383b19b2bcb8" />
 
 
-    JOUEUR "1,1" -- "1,1" PERSONNAGE : Possède
-    PERSONNAGE "1,1" --> "1,1" INVENTAIRE : Possède
-    INVENTAIRE "0,n" --> "0,n" CLASSEMENT : Contribue_au
-    
-    
-    <img width="1143" height="6185" alt="End-to-End Encrypted-2026-11-13-091653" src="https://github.com/user-attachments/assets/270b6e07-768e-48b6-a9f5-0586fa357ef1" />
+class JOUEUR {
+    +Guid id
+    +string email
+    +string surnom
+    +string pays
+    +bool connecte_le
+}
+
+class PERSONNAGE {
+    +Guid id
+    +string nom
+    +int niveau
+    +int pointExp
+    +int pointDeVie
+    +statut statut
+}
+
+class INVENTAIRE {
+    +Guid id
+    +int capacite
+    +int espaceUtilise
+}
+
+class OBJET {
+    +Guid id
+    +string nom
+    +string type
+    +int rarete
+    +int quantite
+    +int degats
+    +int defense
+}
+
+class CLASSEMENT {
+    +Guid id
+    +string nom
+}
+
+class SCORE {
+    +Guid id
+    +int points
+    +int position
+}
+
+JOUEUR "1" -- "0..*" PERSONNAGE : Possède (RG2	Un joueur peut avoir plusieurs personnages, mais chaque personnage appartient à un seul joueur.)
+
+PERSONNAGE "1" -- "1" INVENTAIRE : Possède (RG4	Chaque personnage possède un inventaire unique et chaque inventaire appartient à un personnage.)
+
+INVENTAIRE "0..1" -- "0..*" OBJET : Contient (RG5	Un inventaire peut être vide ou contenir plusieurs objets. Un objet est dans au maximum un inventaire.)
+
+PERSONNAGE "0..*" -- "0..*" CLASSEMENT : Participe
+
+JOUEUR "1" -- "0..*" SCORE : Possède (RG8	Un joueur peut avoir un score dans plusieurs classements.)
+
+CLASSEMENT "1" -- "0..*" SCORE : Contient (RG8	Un classement contient plusieurs scores, chaque score appartient à un seul classement.)
 
 
 
-MLD (clé primaire soulignée, clé étrangère précédée de #):
+MLD (clé primaire précédée de #, clé étrangère précédée de *):
 
-JOUEUR (id, email, surnom, pays, connecte_le)
+JOUEUR(#id, email, surnom, pays, connecte_le)
 
-PERSONNAGE (id, nom, niveau, pointExp, pointDeVie, statut, #id_joueur)
+PERSONNAGE(#id, nom, niveau, pointExp, pointDeVie, statut, *id_joueur)
 
-INVENTAIRE (id, nom, espace, #id_personnage)
+INVENTAIRE(#id, capacite, espaceUtilise, *id_personnage)
 
-OBJET (id, nom, prix_unitaire)
+OBJET(#id, nom, type, rarete, quantite, degats, defense, *id_inventaire)
 
-CONTENIR (#id_inventaire, #id_objet, quantite)
+CLASSEMENT(#id, nom)
 
-CLASSEMENT (id, nom)
+SCORE(#id, points, position, *id_joueur, *id_classement)
 
-PARTICIPER (#id_personnage, #id_classement, score)
+
 
 ADR:
 
